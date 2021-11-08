@@ -50,12 +50,12 @@ public class MainActivity2 extends AppCompatActivity {
         editor.putString("password", "1234");
         editor.commit();
 
-        String userName = sharedpreferences.getString("username", "");
-        String password = sharedpreferences.getString("password", "");
+        String userName = sharedpreferences.getString("username", "lll");
+        String password = sharedpreferences.getString("password", "lll");
 
         Log.e("userName", userName);
         Log.e("password", password);
-        
+
 
     }
 

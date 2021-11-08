@@ -2,6 +2,8 @@ package com.tag.myapplication.view.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -40,6 +42,21 @@ public class MainActivity2 extends AppCompatActivity {
             Log.e("nearby house", item.getIsNearSchool() + "");
 
         }
+
+        SharedPreferences sharedpreferences = getSharedPreferences("db", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("username", "ihab");
+        editor.putString("password", "1234");
+        editor.commit();
+
+        String userName = sharedpreferences.getString("username", "");
+        String password = sharedpreferences.getString("password", "");
+
+        Log.e("userName", userName);
+        Log.e("password", password);
+        
+
     }
 
     @Override

@@ -3,13 +3,18 @@ package com.tag.myapplication.view.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import com.tag.myapplication.R;
 import com.tag.myapplication.model.models.House;
 import com.tag.myapplication.model.models.Person;
+import com.tag.myapplication.model.models.Sequare;
+import com.tag.myapplication.model.models.Shape;
 import com.tag.myapplication.model.models.TestParcable;
 
 import java.util.ArrayList;
@@ -21,6 +26,14 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        Button button = findViewById(R.id.button2);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity2.this, MainActivity3.class));
+            }
+        });
 
         Log.e("name", getIntent().getStringExtra("name"));
 
@@ -57,6 +70,14 @@ public class MainActivity2 extends AppCompatActivity {
         Log.e("password", password);
 
 
+        Sequare shape01 = new Sequare();
+        Shape shape02 = new Sequare();
+
+        if(shape01 instanceof Shape){
+            Log.e("instanceof -> ", "true");
+        }else{
+            Log.e("instanceof -> ", "false");
+        }
     }
 
     @Override
@@ -72,6 +93,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onDestroy();
 
         Log.e("MainActivity2", "onDestroy");
+
 
     }
 }
